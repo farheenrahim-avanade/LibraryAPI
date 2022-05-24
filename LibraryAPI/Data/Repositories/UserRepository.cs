@@ -31,6 +31,19 @@ namespace LibraryAPI.Data.Repositories
         {
             return _libraryitemContext.Users.ToList();
         }
+
+        public IEnumerable<string> GetJoinedData()
+        {
+            List<User> users = _libraryitemContext.Users.ToList();
+            List<LibraryItem> libraryItems = _libraryitemContext.LibraryItems.ToList();
+
+            var result = from user in users
+                         join libraryItem in libraryItems
+                         on user.LibraryItemId equals libraryItem.LibraryItemId
+                         select $" User: {user.FirstName} {user.LastName} , Library Item: {libraryItem.ItemName}";
+
+            return result;
+        }
         public bool Save()
         {
             return _libraryitemContext.SaveChanges() > 0; //saves the changes and returns true if greater than 0 which means it was saved successfully

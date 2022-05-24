@@ -37,5 +37,10 @@ namespace LibraryAPI.Services
             _userRepository.Update(old);
             _userRepository.Save();
         }
+
+        public IEnumerable<string> GetJoinedData()
+        {
+            return ((UserRepository)_userRepository).GetJoinedData();
+        }
     }
 }

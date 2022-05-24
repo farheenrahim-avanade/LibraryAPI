@@ -68,6 +68,14 @@ namespace LibraryAPI.Controllers
             _userService.Delete(id);
             return NoContent();
         }
+
+        [HttpGet]
+        [Route("info")]
+
+        public ActionResult<List<string>> GetInfo(int id)
+        {
+            return ((UserService)_userService).GetJoinedData().ToList();
+        }
     }
 }
 
