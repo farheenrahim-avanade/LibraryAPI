@@ -3,7 +3,7 @@ using LibraryAPI.Data.Repositories;
 using LibraryAPI.Models;
 using LibraryAPI.Services;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.OpenApi.Models;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins"; //cors
 var builder = WebApplication.CreateBuilder(args);
@@ -34,6 +34,16 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddSwaggerGen(c =>
+{ c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "TodoRestAPI",
+        Version =
+    "v1"
+    });
+});
+
+
 var app = builder.Build();
 
 app.UseCors(MyAllowSpecificOrigins);//To EnableCors - CrossOrigin
@@ -43,6 +53,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseStaticFiles(); //Allows you to browse index files
 }
 
 app.UseAuthorization();

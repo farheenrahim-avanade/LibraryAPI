@@ -1,10 +1,77 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta name="copyright" content="QA http://www.qa.com">
+    <meta name="author" content="Farheen Rahim, akhand.farheen.rahim@avanade.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <title>Library Collection Example</title>
+    <link href="Styles/main.css" rel="stylesheet" />
+    <script src="Scripts/libraryapi.js"></script>
 </head>
-<body>
+
+
+<!---------------------------------------------------------------------------------------
+  A onload trigger is added to the body which will call the readLibraryItems() function
+  which will in turn send a REST API GET request to the microservice to read the todo_list
+  from the DB
+---------------------------------------------------------------------------------------->
+<body onload="readLibraryItems()">
+
+    <!---------------------------------------------------------------------------------------
+      This is the Header
+    ---------------------------------------------------------------------------------------->
+    <div class="header">
+        <h1>Library Collection</h1>
+        <hr />
+    </div>
+
+
+    <div id="LibraryForm">
+        <form action="javascript:addNewLibraryItem()" style= "margin-left: 10px">
+
+            <!--<label for="newTodoDescription">Please enter a TODO Item</label>-->
+            <h3> Please add a library item: </h3>
+            <input type="text" id="newItemName" placeholder="Add a new library item name" size = 25>
+            <input type="text" id="newItemType" placeholder="Add a new library item type" size = 25 >
+            <input type="text" id="newStatus" placeholder="Add a new library item status" size = 25>
+            <input type="submit" value="Add" class="addButton" />
+        </form>
+    </div>
+
+    <!---------------------------------------------------------------------------------------
+      HTML element to hold the todoList.  This is where all the TodoItems will be displayed
+    ---------------------------------------------------------------------------------------->
+    <div>
+        <br />
+        <br />
+        <br />
+        <ul id="todoList">
+            <!-- This list is empty at start and is populated by the readLibraryItems() function
+                called by the onload trigger (see the body element above)
+            -->
+        </ul>
+    </div>
+
+    <br />
+
+    <form class=" col-2 " action="javascript:getUpdatedLibraryForm()" style=" margin-left:10px;">
+
+        <h3>Update library item</h3>
+        <input type="hidden" id="updateLibraryID" placeholder="ID..." size=5>
+
+        <label for="updateLibraryItemName">Item name</label>
+        <input type="text" id="updateLibraryItemName" placeholder="Item Name">
+
+        <label for="updateLibraryItemType">Item type</label>
+        <input type="text" id="updateLibraryItemType" placeholder="Item Type">
+
+        <label for="updateLibraryItemStatus">Status </label>
+        <input type="text" id="updateLibraryItemStatus" placeholder="Status">
+
+        <input type="submit" value="Update" class="addButton" />
+    </form>
 
 </body>
 </html>

@@ -1,0 +1,113 @@
+﻿body {
+    margin: 0;
+    min-width: 720px;
+    font-family: sans-serif;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+/*********************************************
+         * Header
+         ********************************************/
+.header { 
+    background-color: black;
+    height: 155px;
+    color: white;
+    padding: 10px;
+    margin: 0;
+}
+/*creating a class called header which can be applied to other elements like h1, h2 etc.*/
+
+input {
+    margin: 0;
+    border: none;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+.addButton {
+    float: left;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .addButton:hover {
+        background-color: cornflowerblue;
+        color: white;
+    }
+
+label {
+    float: left;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/*********************************************
+         * TODO_ITEMS List
+         ********************************************/
+
+/* Remove margins and padding from the ul element (unordered lis)  so that the list is flushed with the
+           browser borders instead of leaving a gap */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+    /* Each li element with the ul will hold a todo_item */
+    ul li {
+        cursor: pointer;
+        padding: 12px;
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+    }
+
+        /* Set all odd list items to a different background colour (zebra-stripes) */
+        ul li:nth-child(odd) {
+            background: #f9f9f9;
+        }
+
+        /* Darker background-color on hover */
+        ul li:hover {
+            background: #ddd;
+        }
+
+        /* When clicked on, change the background colour and strike out text */
+        ul li.checked {
+            background: #888;
+            color: #fff;
+            text-decoration: line-through;
+        }
+
+/* CSS style to hide the "tick" symbol if an item status is not set to "DONE"
+           This is done in code - see the addTodoItemToDisplay() function where the element is classList.toggle() */
+.tickHidden {
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    visibility: hidden;
+}
+
+/* When clicked on, also show the "tick" symbol.  Again this is done in code.
+           see the addTodoItemToDisplay() function  */
+.tickVisible {
+    visibility: visible;
+}
+
+.close {
+    padding-left: 5px;
+    padding-right: 5px;
+    float: right;
+}
+
+    /* This adds a hover selector to the close class. That is any elements attached to the close class with change to
+           a RED with WHITE background.  In this case, this will be the close "button" for each of the todo_item
+        */
+    .close:hover {
+        background-color: red;
+        color: white;
+    }
