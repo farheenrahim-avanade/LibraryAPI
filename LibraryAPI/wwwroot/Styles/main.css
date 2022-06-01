@@ -12,12 +12,14 @@
 /*********************************************
          * Header
          ********************************************/
-.header { 
+.header {
     background-color: black;
     height: 155px;
     color: white;
-    padding: 10px;
+    padding: 40px;
     margin: 0;
+    font-family: Abril Fatface;
+    padding-left: 15px;
 }
 /*creating a class called header which can be applied to other elements like h1, h2 etc.*/
 
@@ -77,11 +79,11 @@ ul {
         }
 
         /* When clicked on, change the background colour and strike out text */
-        ul li.checked {
+         ul li.checked {
             background: #888;
             color: #fff;
-            text-decoration: line-through;
         }
+       
 
 /* CSS style to hide the "tick" symbol if an item status is not set to "DONE"
            This is done in code - see the addTodoItemToDisplay() function where the element is classList.toggle() */
@@ -111,3 +113,33 @@ ul {
         background-color: red;
         color: white;
     }
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+    }
+ 
+.navbar li a:hover:not(.active) {
+    background-color: yellow;
+}
+
+.navbar active {
+    background-color: red;
+} 

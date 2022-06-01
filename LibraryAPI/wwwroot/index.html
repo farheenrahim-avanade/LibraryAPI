@@ -22,20 +22,29 @@
     <!---------------------------------------------------------------------------------------
       This is the Header
     ---------------------------------------------------------------------------------------->
+    <div class="navbar">
+        <ul>
+            <li><a class="active" href="./home.html">Home</a></li>
+            <li><a href="#news">Add a library item</a></li>
+            <li><a href="#contact">Add a user</a></li>
+        </ul>
+    </div>
+
     <div class="header">
         <h1>Library Collection</h1>
         <hr />
     </div>
 
 
+
     <div id="LibraryForm">
-        <form action="javascript:addNewLibraryItem()" style= "margin-left: 10px">
+        <form action="javascript:addNewLibraryItem()" style="margin-left: 10px">
 
             <!--<label for="newTodoDescription">Please enter a TODO Item</label>-->
             <h3> Please add a library item: </h3>
-            <input type="text" id="newItemName" placeholder="Add a new library item name" size = 25>
-            <input type="text" id="newItemType" placeholder="Add a new library item type" size = 25 >
-            <input type="text" id="newStatus" placeholder="Add a new library item status" size = 25>
+            <input type="text" id="newItemName" placeholder="Add a new library item name" size=25>
+            <input type="text" id="newItemType" placeholder="Add a new library item type" size=25>
+            <input type="text" id="newStatus" placeholder="Add a new library item status" size=25>
             <input type="submit" value="Add" class="addButton" />
         </form>
     </div>
@@ -58,7 +67,7 @@
 
     <form class=" col-2 " action="javascript:getUpdatedLibraryForm()" style=" margin-left:10px;">
 
-        <h3>Update library item</h3>
+        <h3>Please click on a library item above to update it</h3>
         <input type="hidden" id="updateLibraryID" placeholder="ID..." size=5>
 
         <label for="updateLibraryItemName">Item name</label>
